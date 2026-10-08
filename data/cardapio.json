@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "estabelecimento": "Esfiha's",
+    "whatsapp": "+5511999999999",
+    "moeda": "BRL"
+  },
+  "produtos": [
+    {
+      "id": "esf-carne",
+      "nome": "Esfiha de Carne",
+      "categoria": "esfiha",
+      "tipoSabor": "salgada",
+      "descricao": "Carne moída temperada com cebola, hortelã e pimenta síria.",
+      "preco": 6.5,
+      "promocao": false,
+      "precoPromocional": null,
+      "imagem": "bakery_dining",
+      "disponivel": true,
+      "tags": [
+        "best-seller"
+      ]
+    },
+    {
+      "id": "esf-frango-catupiry",
+      "nome": "Esfiha de Frango com Catupiry",
+      "categoria": "esfiha",
+      "tipoSabor": "salgada",
+      "descricao": "Frango desfiado cremoso com catupiry original.",
+      "preco": 7.5,
+      "promocao": true,
+      "precoPromocional": 6.5,
+      "imagem": "bakery_dining",
+      "disponivel": true,
+      "tags": [
+        "promocao"
+      ]
+    },
+    {
+      "id": "esf-queijo",
+      "nome": "Esfiha de Queijo",
+      "categoria": "esfiha",
+      "tipoSabor": "salgada",
+      "descricao": "Muçarela derretida com orégano.",
+      "preco": 6.0,
+      "promocao": false,
+      "precoPromocional": null,
+      "imagem": "bakery_dining",
+      "disponivel": true,
+      "tags": [
+        "vegetariana"
+      ]
+    },
+    {
+      "id": "esf-calabresa",
+      "nome": "Esfiha de Calabresa",
+      "categoria": "esfiha",
+      "tipoSabor": "salgada",
+      "descricao": "Calabresa fatiada com cebola roxa.",
+      "preco": 6.5,
+      "promocao": false,
+      "precoPromocional": null,
+      "imagem": "bakery_dining",
+      "disponivel": true,
+      "tags": []
+    },
+    {
+      "id": "esf-escarola",
+      "nome": "Esfiha de Escarola",
+      "categoria": "esfiha",
+      "tipoSabor": "salgada",
+      "descricao": "Escarola refogada com alho e azeite.",
+      "preco": 6.0,
+      "promocao": false,
+      "precoPromocional": null,
+      "imagem": "eco",
+      "disponivel": false,
+      "tags": [
+        "vegetariana"
+      ]
+    },
+    {
+      "id": "esf-chocolate",
+      "nome": "Esfiha de Chocolate",
+      "categoria": "esfiha",
+      "tipoSabor": "doce",
+      "descricao": "Chocolate ao leite derretido polvilhado com açúcar.",
+      "preco": 7.0,
+      "promocao": false,
+      "precoPromocional": null,
+      "imagem": "cookie",
+      "disponivel": true,
+      "tags": []
+    },
+    {
+      "id": "esf-romeu-julieta",
+      "nome": "Esfiha Romeu e Julieta",
+      "categoria": "esfiha",
+      "tipoSabor": "doce",
+      "descricao": "Queijo minas com goiabada cremosa.",
+      "preco": 7.5,
+      "promocao": false,
+      "precoPromocional": null,
+      "imagem": "cake",
+      "disponivel": true,
+      "tags": []
+    },
+    {
+      "id": "beb-refrigerante-lata",
+      "nome": "Refrigerante Lata 350ml",
+      "categoria": "bebida",
+      "tipoSabor": "salgada",
+      "descricao": "Lata 350ml. Sabores: cola, guaraná, laranja.",
+      "preco": 6.0,
+      "promocao": false,
+      "precoPromocional": null,
+      "imagem": "local_drink",
+      "disponivel": true,
+      "tags": []
+    },
+    {
+      "id": "beb-suco-natural",
+      "nome": "Suco Natural 500ml",
+      "categoria": "bebida",
+      "tipoSabor": "doce",
+      "descricao": "Laranja, abacaxi com hortelã ou maracujá.",
+      "preco": 9.0,
+      "promocao": true,
+      "precoPromocional": 7.5,
+      "imagem": "local_bar",
+      "disponivel": true,
+      "tags": [
+        "promocao"
+      ]
+    },
+    {
+      "id": "beb-agua",
+      "nome": "Água Mineral 500ml",
+      "categoria": "bebida",
+      "tipoSabor": "salgada",
+      "descricao": "Sem gás.",
+      "preco": 4.0,
+      "promocao": false,
+      "precoPromocional": null,
+      "imagem": "water_drop",
+      "disponivel": true,
+      "tags": []
+    }
+  ]
+}

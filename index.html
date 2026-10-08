@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esfiha's - Cardápio & Delivery</title>
+
+  <!-- Google Fonts: Poppins & Open Sans (including condensed variants) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Google Material Symbols / Icons (Outlined) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo" id="brandLogo">
+        <span class="material-symbols-outlined logo-icon">local_pizza</span>
+        <span class="brand-name">Esfiha's</span>
+      </div>
+
+      <div class="header-actions">
+        <button id="cartToggleBtn" class="cart-btn" aria-label="Abrir Carrinho">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container for Views -->
+  <main class="app-main">
+
+    <!-- View 1: Cardápio / Menu Principal -->
+    <section id="view-menu" class="view view-active">
+      <div class="hero-banner">
+        <h2>As melhores esfihas artesanais da cidade!</h2>
+        <p>Massa leve, recheios suculentos e ingredientes selecionados.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="todos">
+          <span class="material-symbols-outlined">restaurant_menu</span> Todos
+        </button>
+        <button class="filter-btn" data-filter="promocao">
+          <span class="material-symbols-outlined">local_offer</span> Promoções
+        </button>
+        <button class="filter-btn" data-filter="salgada">
+          <span class="material-symbols-outlined">lunch_dining</span> Salgadas
+        </button>
+        <button class="filter-btn" data-filter="doce">
+          <span class="material-symbols-outlined">cookie</span> Doces
+        </button>
+        <button class="filter-btn" data-filter="bebida">
+          <span class="material-symbols-outlined">local_drink</span> Bebidas
+        </button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Dynamic loading -->
+      </div>
+    </section>
+
+    <!-- View 2: Carrinho de Compras -->
+    <section id="view-cart" class="view">
+      <div class="view-header">
+        <button class="back-btn" data-target="view-menu">
+          <span class="material-symbols-outlined">arrow_back</span> Voltar ao Menu
+        </button>
+        <h2>Seu Carrinho</h2>
+      </div>
+
+      <div id="cartEmptyState" class="empty-state hidden">
+        <span class="material-symbols-outlined empty-icon">shopping_cart</span>
+        <p>Seu carrinho está vazio.</p>
+        <button class="btn btn-primary" data-target="view-menu">Ver Cardápio</button>
+      </div>
+
+      <div id="cartContent" class="cart-content">
+        <div class="cart-items-list" id="cartItemsList">
+          <!-- Dynamic cart items -->
+        </div>
+
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="cartSubtotal">R$ 0,00</span>
+          </div>
+          <div class="summary-row">
+            <span>Taxa de Entrega</span>
+            <span class="free-text">Grátis</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <span id="cartTotal">R$ 0,00</span>
+          </div>
+
+          <button id="goToCheckoutBtn" class="btn btn-primary btn-block">
+            Continuar para Cadastro <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 3: Cadastro & Geolocalização -->
+    <section id="view-checkout" class="view">
+      <div class="view-header">
+        <button class="back-btn" data-target="view-cart">
+          <span class="material-symbols-outlined">arrow_back</span> Voltar ao Carrinho
+        </button>
+        <h2>Dados de Entrega</h2>
+      </div>
+
+      <form id="checkoutForm" class="form-container">
+        <div class="form-group">
+          <label for="userName">
+            <span class="material-symbols-outlined">person</span> Nome Completo
+          </label>
+          <input type="text" id="userName" name="userName" required placeholder="Digite seu nome completo">
+        </div>
+
+        <div class="form-group">
+          <label for="userPhone">
+            <span class="material-symbols-outlined">phone</span> WhatsApp / Telefone
+          </label>
+          <input type="tel" id="userPhone" name="userPhone" required placeholder="(11) 99999-9999">
+        </div>
+
+        <div class="form-group">
+          <label for="userEmail">
+            <span class="material-symbols-outlined">mail</span> E-mail
+          </label>
+          <input type="email" id="userEmail" name="userEmail" required placeholder="seu@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="userAddress">
+            <span class="material-symbols-outlined">home</span> Endereço Completo
+          </label>
+          <textarea id="userAddress" name="userAddress" rows="3" required placeholder="Rua, Número, Bairro, Cidade - UF"></textarea>
+        </div>
+
+        <!-- Geolocation Button Block -->
+        <div class="geo-box">
+          <div class="geo-info">
+            <span class="material-symbols-outlined geo-icon">location_on</span>
+            <div>
+              <strong>Adicionar Geolocalização</strong>
+              <p class="small-text">Compartilhe sua posição GPS para facilitar a entrega.</p>
+            </div>
+          </div>
+          <button type="button" id="geoBtn" class="btn btn-secondary btn-sm">
+            <span class="material-symbols-outlined">my_location</span> Usar Minha Localização
+          </button>
+          <div id="geoStatus" class="geo-status hidden"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          Avançar para Segurança <span class="material-symbols-outlined">shield</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- View 4: Prova de Vida e Segurança (CredentialsContainer / WebAuthn) -->
+    <section id="view-security" class="view">
+      <div class="view-header">
+        <button class="back-btn" data-target="view-checkout">
+          <span class="material-symbols-outlined">arrow_back</span> Voltar ao Cadastro
+        </button>
+        <h2>Validação de Segurança</h2>
+      </div>
+
+      <div class="security-card">
+        <span class="material-symbols-outlined security-icon">fingerprint</span>
+        <h3>Confirmação de Identidade</h3>
+        <p>Para sua proteção e prova de vida, clique no botão abaixo para autenticar via biometria ou PIN do seu dispositivo.</p>
+
+        <div id="securityNotice" class="notice-box info hidden">
+          <span class="material-symbols-outlined">info</span>
+          <span id="securityNoticeText"></span>
+        </div>
+
+        <button id="verifyCredentialsBtn" class="btn btn-primary btn-block">
+          <span class="material-symbols-outlined">security</span> Validar com Biometria / Dispositivo
+        </button>
+
+        <button id="skipSecurityBtn" class="btn btn-text btn-block margin-top-sm">
+          Continuar sem biometria
+        </button>
+      </div>
+    </section>
+
+    <!-- View 5: Gateway de Pagamento (Simulação) -->
+    <section id="view-payment" class="view">
+      <div class="view-header">
+        <button class="back-btn" data-target="view-security">
+          <span class="material-symbols-outlined">arrow_back</span> Alterar Segurança
+        </button>
+        <h2>Pagamento Simulado</h2>
+      </div>
+
+      <div class="payment-card">
+        <div class="payment-summary">
+          <span>Total a Pagar:</span>
+          <strong id="paymentTotalAmount">R$ 0,00</strong>
+        </div>
+
+        <form id="paymentForm">
+          <div class="form-group">
+            <label for="paymentMethod">Forma de Pagamento</label>
+            <select id="paymentMethod" class="form-control">
+              <option value="pix">PIX (Aprovação Instantânea)</option>
+              <option value="card">Cartão de Crédito</option>
+              <option value="cash">Dinheiro na Entrega</option>
+            </select>
+          </div>
+
+          <div class="simulation-actions">
+            <p class="sim-label">Selecione o resultado da simulação:</p>
+            <button type="button" id="payApproveBtn" class="btn btn-success btn-block">
+              <span class="material-symbols-outlined">check_circle</span> Simular Aprovado
+            </button>
+            <button type="button" id="payDeclineBtn" class="btn btn-danger btn-block">
+              <span class="material-symbols-outlined">cancel</span> Simular Recusado
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- View 6: Confirmação e WhatsApp -->
+    <section id="view-confirmation" class="view">
+      <div class="confirmation-card">
+        <span class="material-symbols-outlined success-icon">task_alt</span>
+        <h2>Pedido Confirmado!</h2>
+        <p class="order-id-label">Número do Pedido: <strong id="orderIdDisplay">#000000</strong></p>
+
+        <div class="order-summary-box" id="orderSummaryBox">
+          <!-- Summary content dynamic -->
+        </div>
+
+        <p class="whatsapp-instruction">
+          Clique no botão abaixo para enviar o pedido diretamente para nossa central via WhatsApp:
+        </p>
+
+        <a id="whatsappLink" href="#" target="_blank" class="btn btn-whatsapp btn-block">
+          <span class="material-symbols-outlined">chat</span> Enviar Pedido no WhatsApp
+        </a>
+
+        <button id="newOrderBtn" class="btn btn-secondary btn-block margin-top-md">
+          Fazer Novo Pedido
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating Sticky Cart Bar (visible on menu view when items in cart) -->
+  <div id="stickyCartBar" class="sticky-cart-bar hidden">
+    <div class="sticky-cart-info">
+      <span class="sticky-count" id="stickyCartCount">0 itens</span>
+      <span class="sticky-total" id="stickyCartTotal">R$ 0,00</span>
+    </div>
+    <button class="btn btn-primary btn-sm" data-target="view-cart">
+      Ver Carrinho <span class="material-symbols-outlined">shopping_cart</span>
+    </button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
